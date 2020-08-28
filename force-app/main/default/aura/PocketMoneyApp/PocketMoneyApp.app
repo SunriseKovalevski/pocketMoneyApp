@@ -1,3 +1,3 @@
 <aura:application>
-    <c:trasactionPage/>
+    <c:transactionPage/>
 </aura:application>	
