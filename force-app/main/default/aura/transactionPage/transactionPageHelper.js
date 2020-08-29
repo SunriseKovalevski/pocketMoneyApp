@@ -8,6 +8,7 @@
             }
         })
         $A.enqueueAction(action1);
+        
         var action = component.get('c.getTransactions');
         action.setCallback(this, function(response) {
             var state = response.getState();
