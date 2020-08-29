@@ -1,3 +1,6 @@
 <aura:component controller="TransactionPageController">
 
+    <aura:attribute name="transactionList" type="List" default="[]"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
 </aura:component>	
