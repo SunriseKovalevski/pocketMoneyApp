@@ -15,10 +15,14 @@ public with sharing class TransactionPageController {
     }
 
     public static UserData getUser() {
-        User u = new User();
-        getUser().uId = UserInfo.getUserId();
-        u = Database.query('');
-        return getUser();
+        UserData uData = new UserData();
+        uData.uId = UserInfo.getUserId();
+        List<User> uL = [SELECT Id, Name, Email, Address, Phone FROM User WHERE Id =:uData.uId LIMIT 1];
+        uData.uName = ul[0].Name;
+        uData.uEmail = ul[0].Email;
+        uData.uAddress = ul[0].Address;
+        uData.uPhone = ul[0].Phone;
+        return uData;
     }
 
     @AuraEnabled
