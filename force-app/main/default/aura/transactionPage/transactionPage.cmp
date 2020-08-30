@@ -4,4 +4,16 @@
     <aura:attribute name="user" type="Object"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
-</aura:component>	
+
+    <lightning:card>
+        <lightning:datatable>
+
+        </lightning:datatable>
+        <p>
+         Hi Hello
+        </p>
+    </lightning:card>
+    
+    
+    
+</aura:component>
