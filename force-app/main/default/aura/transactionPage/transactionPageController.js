@@ -1,7 +1,7 @@
 ({
     init : function(component, event, helper) {
 
-        cmp.set('v.columns', [
+        component.set('v.columns', [
             {label: 'Value', fieldName: 'Value__c', type: 'text'},
             {label: 'Transaction Date', fieldName: 'TransactionDate__c', type: 'date'},
             {label: 'Transfer', fieldName: 'Transfer__c', type: 'date'}
