@@ -7,8 +7,10 @@ public with sharing class TransactionPageController {
         public String uEmail;
         public String uAddress;
         public String uPhone;
-    }
 
+    }
+    
+    @AuraEnabled
     public static UserData getUser() {
         UserData uData = new UserData();
         uData.uId = UserInfo.getUserId();

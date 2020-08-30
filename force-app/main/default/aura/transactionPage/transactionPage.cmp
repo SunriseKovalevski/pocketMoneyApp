@@ -1,4 +1,4 @@
-<aura:component access="GLOBAL"  controller="TransactionPageController">
+<aura:component implements="force:hasRecordId,force:hasSObjectName,flexipage:availableForAllPageTypes"  controller="TransactionPageController" access="GLOBAL">
 
     <aura:attribute name="transactionList" type="List" default="[]"/>
     <aura:attribute name="user" type="Object"/>
@@ -13,7 +13,5 @@
          Hi Hello
         </p>
     </lightning:card>
-    
-    
-    
+
 </aura:component>
