@@ -8,6 +8,11 @@
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
 
     <lightning:card>
+        <div class="input-group">
+            
+            <lightning:button label="Create Record" onclick="{! c.createRecord }"/>
+            
+        </div>
         <lightning:datatable 
             data="{! v.mydata }"
             columns="{! v.mycolumns }"
