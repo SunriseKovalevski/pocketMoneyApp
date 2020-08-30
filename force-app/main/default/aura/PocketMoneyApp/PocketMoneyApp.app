@@ -1,3 +1,3 @@
-<aura:application implements="force:hasRecordId,force:hasSObjectName,flexipage:availableForAllPageTypes" access="GLOBAL">
+<aura:application access="global">
     <c:transactionPage/>
 </aura:application>
