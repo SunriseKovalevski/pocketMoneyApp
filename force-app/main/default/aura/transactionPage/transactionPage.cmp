@@ -1,4 +1,4 @@
-<aura:component controller="TransactionPageController">
+<aura:component access="GLOBAL"  controller="TransactionPageController">
 
     <aura:attribute name="transactionList" type="List" default="[]"/>
     <aura:attribute name="user" type="Object"/>
