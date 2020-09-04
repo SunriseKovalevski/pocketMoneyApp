@@ -32,6 +32,22 @@ public with sharing class TransactionPageController {
                                             FROM Transaction__c 
                                             WHERE CreatedById =: uId
                                             ORDER BY TransactionDate__c DESC];
+        
+        // FOR
+        Decimal sumBalance = 0;
+        for (Transaction__c item : tList) {
+            if (item.Transfer__c) {
+                sumBalance += item.Value__c;
+            } else {
+                sumBalance -= item.Value__c;
+            }
+        }
+
+        uId = UserInfo.getUserId();
+        User u = [SELECT Id, Name, Email, Address, Phone, Balance__c FROM User WHERE Id =:uId LIMIT 1];
+        u.Balance__c = sumBalance;
+        update u;
+
         System.debug(' Transaction__c  tList  ===>>>  ' + JSON.serializePretty(tList));
         return tList; //JSON.serializePretty(tList);
     }
