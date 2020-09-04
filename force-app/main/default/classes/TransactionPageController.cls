@@ -34,7 +34,14 @@ public with sharing class TransactionPageController {
         return tList; //JSON.serializePretty(tList);
     }
 
+    @AuraEnabled
+    public static String getId(){
+        return UserInfo.getUserId();
+    }
+
     public TransactionPageController() {
 
     }
+
+
 }
