@@ -20,10 +20,12 @@
     handleRowAction: function (component, event, helper) {
         var action = event.getParam('action');
         var row = event.getParam('row');
+        var tId = event.getParam('id');
+        console.log(' ' + tId);
 
         switch (action.name) {
             case 'delete':
-                helper.removeBook(component, row);
+                helper.removeTransaction(component, row);
                 break;
         }
     },

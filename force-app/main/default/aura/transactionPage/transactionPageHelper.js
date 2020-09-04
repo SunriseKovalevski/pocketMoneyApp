@@ -34,13 +34,26 @@
         
     },
 
-    removeBook: function (component, row) {
-        var rows = component.get('v.mydata');
-        var rowIndex = rows.indexOf(row);
+    removeTransaction: function (component, row) {
+    
+        var action = component.get("c.deleteTransaction");
+        action.setParams({
+            "t":row
+        });
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                var rows = component.get('v.mydata');
+                var rowIndex = rows.indexOf(row);
+                rows.splice(rowIndex, 1);
+                component.set('v.mydata', rows);
+            }
+            else if (state === "ERROR") {
+                // handle error
+            }
+        });
+        $A.enqueueAction(action);
 
-        rows.splice(rowIndex, 1);
-        component.set('v.mydata', rows);
-        
     },
 
     helperMethod : function() {

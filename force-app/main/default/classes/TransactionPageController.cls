@@ -56,6 +56,13 @@ public with sharing class TransactionPageController {
         return UserInfo.getUserId();
     }
 
+
+    @AuraEnabled
+    public static Transaction__c deleteTransaction (Transaction__c t) {
+        delete t;
+        return t;
+    }
+
     public TransactionPageController() {
 
     }
