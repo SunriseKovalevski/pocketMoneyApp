@@ -1,5 +1,4 @@
 public with sharing class TransactionPageController {
-    
 
     public class UserData {
         public Id uId;
@@ -9,7 +8,7 @@ public with sharing class TransactionPageController {
         public String uPhone;
 
     }
-    
+
     @AuraEnabled
     public static UserData getUser() {
         UserData uData = new UserData();
@@ -38,5 +37,4 @@ public with sharing class TransactionPageController {
     public TransactionPageController() {
 
     }
-
 }

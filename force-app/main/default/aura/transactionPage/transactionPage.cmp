@@ -8,6 +8,15 @@
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
 
     <lightning:card>
+        <div class="slds-p-around_medium">
+            <lightning:recordEditForm aura:id="recordEditForm" objectApiName="Transaction__c">
+                <lightning:messages />
+                <lightning:inputField fieldName="Name" />
+                <lightning:inputField fieldName="Value__c" />
+                <lightning:inputField fieldName="Transfer__c" />  
+                <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium"/>
+            </lightning:recordEditForm>
+        </div>
         <div class="input-group">
             
             <lightning:button label="Create Record" onclick="{! c.createRecord }"/>
