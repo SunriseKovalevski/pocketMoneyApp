@@ -6,6 +6,7 @@ public with sharing class TransactionPageController {
         public String uEmail;
         public String uAddress;
         public String uPhone;
+        public Decimal uBalance;
 
     }
 
@@ -13,11 +14,12 @@ public with sharing class TransactionPageController {
     public static UserData getUser() {
         UserData uData = new UserData();
         uData.uId = UserInfo.getUserId();
-        List<User> uL = [SELECT Id, Name, Email, Address, Phone FROM User WHERE Id =:uData.uId LIMIT 1];
+        List<User> uL = [SELECT Id, Name, Email, Address, Phone, Balance__c FROM User WHERE Id =:uData.uId LIMIT 1];
         uData.uName = ul[0].Name;
         uData.uEmail = ul[0].Email;
         uData.uAddress = ul[0].Address.getState();
         uData.uPhone = ul[0].Phone;
+        uData.uBalance = ul[0].Balance__c;
         return uData;
     }
 

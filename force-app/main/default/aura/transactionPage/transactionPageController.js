@@ -9,8 +9,6 @@
            
         ]);
 
-        
-
         helper.getTransactions(component);
     },
     myAction : function(component, event, helper) {

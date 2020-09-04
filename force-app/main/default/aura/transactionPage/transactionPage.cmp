@@ -17,6 +17,7 @@
                 <lightning:outputField fieldName="Email" />
                 <lightning:outputField fieldName="Address" />
                 <lightning:outputField fieldName="Mobile" />
+                <lightning:outputField fieldName="Balance__c" />
                 
             </div>
         </lightning:recordViewForm>
@@ -38,5 +39,4 @@
             onrowselection="{! c.getSelectedName }"/>
     
     </lightning:card>
-
 </aura:component>
