@@ -14,11 +14,11 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 component.set('v.mydata', response.getReturnValue());
-                component.set("v.transactionList", response.getReturnValue());
+                console.log('HI hello => ' + component.get('v.mydata'));
             }
         });
         $A.enqueueAction(action);
-       
+        
     },
     helperMethod : function() {
         

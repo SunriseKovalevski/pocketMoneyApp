@@ -22,7 +22,7 @@ public with sharing class TransactionPageController {
     }
 
     @AuraEnabled
-    public static String getTransactions(){
+    public static List <Transaction__c> getTransactions(){
         
         String uId = UserInfo.getUserId();
         List <Transaction__c> tList = [SELECT Id, Name, TransactionDate__c, 
@@ -31,7 +31,7 @@ public with sharing class TransactionPageController {
                                             WHERE CreatedById =: uId
                                             ORDER BY TransactionDate__c DESC];
         System.debug(' Transaction__c  tList  ===>>>  ' + JSON.serializePretty(tList));
-        return JSON.serializePretty(tList);
+        return tList; //JSON.serializePretty(tList);
     }
 
     public TransactionPageController() {
