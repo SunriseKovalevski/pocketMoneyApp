@@ -29,8 +29,20 @@
             }
         });
         $A.enqueueAction(action2);
+
+        
         
     },
+
+    removeBook: function (component, row) {
+        var rows = component.get('v.mydata');
+        var rowIndex = rows.indexOf(row);
+
+        rows.splice(rowIndex, 1);
+        component.set('v.mydata', rows);
+        
+    },
+
     helperMethod : function() {
         
     }

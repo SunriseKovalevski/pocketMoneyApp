@@ -31,9 +31,8 @@ public with sharing class TransactionPageController {
                                             Transfer__c, Value__c
                                             FROM Transaction__c 
                                             WHERE CreatedById =: uId
-                                            ORDER BY TransactionDate__c DESC];
+                                            ORDER BY TransactionDate__c DESC LIMIT 50];
         
-        // FOR
         Decimal sumBalance = 0;
         for (Transaction__c item : tList) {
             if (item.Transfer__c) {
