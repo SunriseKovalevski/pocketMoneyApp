@@ -1,5 +1,37 @@
 @isTest
 private class TransactionPageTest {
+
+    @isTest
+    public static void testSetup(){
+        Profile p = [SELECT Id FROM Profile WHERE Name ='Poket Money User'];
+        List<User> uu = new List<User>();
+        while (uu.size() < 5) {
+            Blob b = Crypto.GenerateAESKey(128);
+            String h = EncodingUtil.ConvertTohex(b);
+            String uid = h.SubString(0,8);
+            User u = new User(Alias = uid, Email= uid + '@myorg.com', 
+                EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
+                LocaleSidKey='en_US', ProfileId = p.Id, 
+                TimeZoneSidKey='America/New_York', UserName= uid + '@myorg.com');      
+            uu.add(u);
+        }
+        Test.startTest();
+        for (User u : uu) {
+            System.runAs(u) {
+                
+
+                List<Transaction__c> tList = new List<Transaction__c>();
+                for (Integer i = 0; i < 50; i++) {
+                    Transaction__c tr = new Transaction__c(OwnerId = u.Id, Name = 'test '+ i);
+                    tList.add(tr);
+                }
+                insert tList;
+
+                
+            }
+        }
+        Test.stopTest();
+    }
     
     @isTest
     static void testGetTransactions() {
