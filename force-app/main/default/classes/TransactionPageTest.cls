@@ -1,6 +1,12 @@
 @isTest
 private class TransactionPageTest {
 
+    /* try {
+                List<Transaction__c> tList = TransactionPageController.getTransactions();
+            } catch (Exception e) {
+                System.assertEquals('System.NoAccessException', e.getTypeName());
+            } */
+
     @isTest
     public static void testSetup(){
         Profile p = [SELECT Id FROM Profile WHERE Name ='Poket Money User'];
